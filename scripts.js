@@ -28,28 +28,37 @@ function playRound(){
     let computerGuess = computerPlay();
     let playerGuess = playerPlay();
     if (playerGuess != "Invalid guess"){
-        if (computerGuess==playerGuess){
-            return "It's a tie!";
-        }
-        else return winningHand(playerGuess,computerGuess);
+        return winningHand(playerGuess,computerGuess);
     }
 }
 
 //Returns 1 if the player wins, 0 otherwise
 function winningHand(player,computer){
+    if (player===computer){
+        return "It's a tie!";
+    }
     switch (player){
         case "rock":
-            if (computer=="paper"){
-                return 1;
+            if (computer==="scissors"){
+                return "You win!";
             }
             else {
-                return 0;
+                return "You lose!";
             }
         case "paper":
+            if (computer==="rock"){
+                return "You win!";
+            }
+            else {
+                return "You lose!";
+            }
         case "scissors":
+            if (computer==="paper"){
+                return "You win!";
+            }
+            else return "You lose!";
         default:
             return;
     }
 }
-console.log(playerPlay());
-console.log(computerPlay());
+console.log(winningHand("rock","scissors"));
