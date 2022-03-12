@@ -35,30 +35,57 @@ function playRound(){
 //Returns 1 if the player wins, 0 otherwise
 function winningHand(player,computer){
     if (player===computer){
-        return "It's a tie!";
+        console.log("It's a tie!");
+        return 2;
     }
     switch (player){
         case "rock":
             if (computer==="scissors"){
-                return "You win!";
+                console.log("You win! Rock beats scissors");
+                return 1;
             }
             else {
-                return "You lose!";
+                console.log("You lose!")
+                return 0;
             }
         case "paper":
             if (computer==="rock"){
-                return "You win!";
+                console.log("You win! Paper beats rock");
+                return 1;
             }
             else {
-                return "You lose!";
+                console.log("You lose!");
+                return 0;
             }
         case "scissors":
             if (computer==="paper"){
-                return "You win!";
+                console.log("You win! Scissors beats paper");
+                return 1;
+            }  
+            else {
+                console.log("You lose!");
+                return 0;
             }
-            else return "You lose!";
         default:
             return;
     }
 }
-console.log(winningHand("rock","scissors"));
+
+function game(){
+    let score = 0;
+    for (let i=0;i<5;i++){
+        let result=playRound();
+        if (result==1){
+            score+=1;
+        }
+    }
+    if (score>=3){
+        console.log("Congratulations, you win!");
+    }
+    else {
+        console.log("Sorry, you lose.")
+    }
+
+}
+
+game();
