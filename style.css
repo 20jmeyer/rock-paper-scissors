@@ -1,0 +1,23 @@
+button {
+    padding: 20px;
+}
+.buttons{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+body {
+    display: flex;
+    flex-direction: column;
+}
+.results{
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+.score{
+    background-color: azure;
+    font-size: large;
+    font-weight: bold;
+}
